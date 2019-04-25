@@ -11,7 +11,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^7.2.12",
+    "@angular/animations": "^7.2.14",
+    "@angular/cdk": "^7.3.7",
     "@angular/common": "^7.2.12",
     "@angular/compiler": "^7.2.12",
     "@angular/core": "^7.2.12",
@@ -19,7 +20,10 @@
     "@angular/platform-browser": "^7.2.12",
     "@angular/platform-browser-dynamic": "^7.2.12",
     "@angular/router": "^7.2.12",
+    "@nebular/theme": "^3.5.0",
+    "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "nebular-icons": "^1.1.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },
@@ -28,6 +32,7 @@
     "@angular/cli": "^7.2.12",
     "@angular/compiler-cli": "^7.2.12",
     "@angular/language-service": "^6.0.3",
+    "@schematics/angular": "^7.2.12",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
