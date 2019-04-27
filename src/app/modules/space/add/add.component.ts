@@ -19,7 +19,7 @@ export class AddComponent implements OnInit {
     this.space = {};
     this.url = 'https://accounts.spotify.com/authorize?client_id=ef56629f44be41e895cac7d03141b9e0&response_type=code&redirect_uri='
       + this.endpoint
-      + '&state=34fFs29kd09&scope=user-read-recently-played playlist-modify-public playlist-read-collaborative user-read-currently-playing';
+      + '&state=34fFs29kd09&show_dialog=true&scope=user-read-recently-played playlist-modify-public playlist-read-collaborative user-read-currently-playing';
   }
 
 

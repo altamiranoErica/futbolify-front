@@ -12,7 +12,11 @@ export class CallbackComponent implements OnInit{
 
   ngOnInit(){
     const code = this.route.snapshot.queryParamMap.get("code");
-    this.router.navigate(["/space/add", { code: code } ])
+    if(code) {
+      this.router.navigate(["/space/add", { code: code }])
+    } else {
+      this.router.navigate(["/space/list" ])
+    }
   }
 
 }

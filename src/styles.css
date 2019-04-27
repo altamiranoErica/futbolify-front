@@ -9686,6 +9686,18 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover {
   color: #4e73df !important
 }
 
+text-primary-100 {
+  color: #aec1ff !important
+}
+
+text-primary-300 {
+  color: #7a9cff !important
+}
+
+text-primary-500 {
+  color: #7297ff !important
+}
+
 a.text-primary:focus, a.text-primary:hover {
   color: #224abe !important
 }
@@ -9702,12 +9714,36 @@ a.text-secondary:focus, a.text-secondary:hover {
   color: #1cc88a !important
 }
 
+.text-success-100 {
+  color: #9ac8a1 !important
+}
+
+.text-success-300 {
+  color: #76c8a3 !important
+}
+
+.text-success-500 {
+  color: #39c898 !important
+}
+
 a.text-success:focus, a.text-success:hover {
   color: #13855c !important
 }
 
 .text-info {
   color: #36b9cc !important
+}
+
+.text-info-100 {
+  color: #8eccc8 !important
+}
+
+.text-info-300 {
+  color: #94c1cc !important
+}
+
+.text-info-500 {
+  color: #5db9cc !important
 }
 
 a.text-info:focus, a.text-info:hover {
@@ -9718,12 +9754,36 @@ a.text-info:focus, a.text-info:hover {
   color: #f6c23e !important
 }
 
+.text-warning-100 {
+  color: #f6edb1 !important
+}
+
+.text-warning-300 {
+  color: #f6e693 !important
+}
+
+.text-warning-500 {
+  color: #f6d361 !important
+}
+
 a.text-warning:focus, a.text-warning:hover {
   color: #dda20a !important
 }
 
 .text-danger {
   color: #e74a3b !important
+}
+
+.text-danger-100 {
+  color: #e7a19c !important
+}
+
+.text-danger-300 {
+  color: #e7746f !important
+}
+
+.text-danger-500 {
+  color: #e7664f !important
 }
 
 a.text-danger:focus, a.text-danger:hover {
