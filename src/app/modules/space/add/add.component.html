@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+      <h5>Agregar nuevo espacio:</h5>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <form class="form-add" #f="ngForm" (ngSubmit)="submit()" novalidate>
+            <ng-container *ngIf="!space.code; else completeForm">
+              <p class="text-danger text-center">
+                <small>Para agregar un nuevo espacio, debe loguearse con una <b>nueva cuenta de Spotify</b>.</small>
+              </p>
+              <a href="{{url}}" class="btn btn-success btn-block"><i class="fab fa-spotify"></i> Spotify</a>
+            </ng-container>
+
+            <ng-template #completeForm>
+              <p class="text-danger text-center">
+                <small>Elija un nombre con el que identificar su nuevo espacio.</small>
+              </p>
+              <div class="form-group">
+                <input type="text" class="form-control" id="name"
+                       [(ngModel)]="space.name" #name="ngModel" name="name">
+              </div>
+
+              <a class="btn btn-danger text-uppercase ml-1 float-right" [routerLink]="['/space/list']">cancelar</a>
+              <button type="submit" class="btn btn-success text-uppercase float-right">agregar</button>
+            </ng-template>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

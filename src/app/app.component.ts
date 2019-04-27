@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
-import { AuthorizeService } from './service/authorize/authorize.service';
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>'
+  template: `
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="../assets/images/logo.png" alt="" width="70">
+          <span class="ml-1 text-white">CROWDIFY</span>
+        </a>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>`
 })
 export class AppComponent {
 }

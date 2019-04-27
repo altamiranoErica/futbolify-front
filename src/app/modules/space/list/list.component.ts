@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaceService } from '../../../service/space.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { SpaceService } from '../../../service/space/space.service';
 
 @Component({
   selector: 'app-list',
@@ -10,19 +9,13 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ListComponent implements OnInit {
 
   spaces: any;
-  colors = ['success', 'warning', 'info', 'danger', 'primary'];
 
-  constructor(private spaceService: SpaceService,
-              private sanitizer: DomSanitizer) { }
+  constructor(private spaceService: SpaceService) { }
 
   ngOnInit() {
-    this.spaceService.getSpaces().subscribe(data => {
+    this.spaceService.getCleanSpaces().subscribe(data => {
       this.spaces = data;
     });
-  }
-
-  safeURL(url){
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
 }

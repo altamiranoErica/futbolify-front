@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `<h1>LOGIN WITH SPOTIFY</h1>
               <a href="{{url}}">Login</a>`
 })
-export class LoginComponent implements OnInit{
+export class RegisterComponent implements OnInit{
 
   url: string;
 

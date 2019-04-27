@@ -1,0 +1,37 @@
+<!-- Page Content -->
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-12 mt-4" *ngFor="let space of spaces; index as i">
+      <div class="card border-left-{{colors[i%4]}} shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <div class="h5 font-weight-bold text-{{colors[i%4]}} text-uppercase mb-3">
+                {{space.name}}
+              </div>
+              <div class="text-xs font-weight-bold text-gray-500 text-uppercase mb-1" *ngIf="!space.track; else trackShow">
+                ... no se está escuchando nada en este espacio ...</div>
+
+              <ng-template #trackShow>
+                <iframe [src]="safeURL(space.track.code)" width="100%"
+                        height="80" frameborder="0" allowtransparency="true"
+                        allow="encrypted-media" *ngIf="space.track.playing"></iframe>
+
+                <div class="text-xs font-weight-bold text-gray-500 text-uppercase mb-1"
+                     *ngIf="!space.track.playing">
+                  <i class="far fa-pause-circle fa-2x mr-1"></i>
+                  <span [style.vertical-align]="'super'">{{space.track.artist}} - {{space.track.name}}</span>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- /.container -->
