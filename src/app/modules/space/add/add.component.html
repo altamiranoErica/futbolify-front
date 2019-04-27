@@ -1,30 +1,34 @@
+<app-header></app-header>
+
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 mt-4">
-      <h5>Agregar nuevo espacio:</h5>
-
-      <div class="card mt-4">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Agregar nuevo espacio</h6>
+          <a [routerLink]="['/space/list']" class="close text-primary"><span aria-hidden="true">×</span></a>
+        </div>
         <div class="card-body">
-          <form class="form-add" #f="ngForm" (ngSubmit)="submit()" novalidate>
+          <form class="user form-add" #f="ngForm" (ngSubmit)="submit()" novalidate>
             <ng-container *ngIf="!space.code; else completeForm">
-              <p class="text-danger text-center">
-                <small>Para agregar un nuevo espacio, debe loguearse con una <b>nueva cuenta de Spotify</b>.</small>
+              <p class="text-dark text-center">
+                Para agregar un nuevo espacio, debe loguearse con una <b>nueva cuenta de Spotify</b>.
               </p>
-              <a href="{{url}}" class="btn btn-success btn-block">
+              <a href="{{url}}" class="btn btn-success btn-rounded btn-block">
                 <i class="fab fa-spotify mr-1"></i>Spotify</a>
             </ng-container>
 
             <ng-template #completeForm>
-              <p class="text-danger text-center">
-                <small>Elija un <b>nombre</b> para identificar su nuevo espacio.</small>
+              <p class="text-dark text-center">
+                Elija un <b>nombre</b> para identificar su nuevo espacio.
               </p>
               <div class="form-group">
-                <input type="text" class="form-control" id="name"
+                <input type="text" class="form-control form-control-user" id="name"
                        [(ngModel)]="space.name" #name="ngModel" name="name">
               </div>
 
-              <a class="btn btn-danger text-uppercase ml-1 float-right" [routerLink]="['/space/list']">cancelar</a>
-              <button type="submit" class="btn btn-success text-uppercase float-right">agregar</button>
+              <button type="submit" class="btn btn-success btn-user btn-block text-uppercase mt-5">agregar</button>
+              <a class="btn btn-danger btn-user btn-block text-uppercase" [routerLink]="['/space/list']">cancelar</a>
             </ng-template>
 
 

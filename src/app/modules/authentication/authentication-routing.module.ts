@@ -1,16 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SpacesComponent } from './spaces/spaces.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
-    path: 'spaces',
-    component: SpacesComponent,
-  },
-  {
-    path: '',
-    redirectTo: 'spaces',
-    pathMatch: 'full'
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
@@ -18,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class PublicRoutingModule { }
+export class AuthenticationRoutingModule { }

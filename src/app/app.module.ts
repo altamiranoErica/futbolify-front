@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing';
+import { ErrorInterceptor, JwtInterceptor } from './helpers';
 
 // -------- COMPONENTS
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing';
-import { AuthorizeService } from './service/authorize/authorize.service';
-import { SpaceService } from './service/space/space.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { SpaceService } from './service/space/space.service';
   ],
   bootstrap: [AppComponent],
   providers: [
-    AuthorizeService, SpaceService
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ]
 })
 export class AppModule { }
