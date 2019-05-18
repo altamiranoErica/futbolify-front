@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SpaceService } from '../../../service/space/space.service';
+import { VenueService } from '../../../service/venue/venue.service';
 
 @Component({
   selector: 'app-list',
@@ -8,13 +8,13 @@ import { SpaceService } from '../../../service/space/space.service';
 })
 export class ListComponent implements OnInit {
 
-  spaces: any;
+  venues: any;
 
-  constructor(private spaceService: SpaceService) { }
+  constructor(private venueService: VenueService) { }
 
   ngOnInit() {
-    this.spaceService.getCleanSpaces().subscribe(data => {
-      this.spaces = data;
+    this.venueService.getCleanSpaces().subscribe(data => {
+      this.venues = data;
     });
   }
 

@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SpaceService {
+export class VenueService {
 
   url: string;
 
@@ -16,17 +16,17 @@ export class SpaceService {
   }
 
   getSpaces() {
-    return this.http.get(`${this.url}/space/list_with_track`);
+    return this.http.get(`${this.url}/venue/list_with_track`);
   }
 
   getCleanSpaces() {
-    return this.http.get(`${this.url}/space/list`);
+    return this.http.get(`${this.url}/venue/list`);
   }
 
-  add(space) {
+  add(venue) {
     const params = new HttpParams()
-      .set('code', space.code)
-      .set('name', space.name);
-    return this.http.post(`${this.url}/space/register`, params);
+      .set('code', venue.code)
+      .set('name', venue.name);
+    return this.http.post(`${this.url}/venue/register`, params);
   }
 }

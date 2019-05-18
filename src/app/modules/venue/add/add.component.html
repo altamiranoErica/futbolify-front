@@ -1,16 +1,14 @@
-<app-header></app-header>
-
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3 mt-4">
       <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">Agregar nuevo espacio</h6>
-          <a [routerLink]="['/space/list']" class="close text-primary"><span aria-hidden="true">×</span></a>
+          <a [routerLink]="['/dashboard/venue/list']" class="close text-primary"><span aria-hidden="true">×</span></a>
         </div>
         <div class="card-body">
           <form class="user form-add" #f="ngForm" (ngSubmit)="submit()" novalidate>
-            <ng-container *ngIf="!space.code; else completeForm">
+            <ng-container *ngIf="!venue.code; else completeForm">
               <p class="text-dark text-center">
                 Para agregar un nuevo espacio, debe loguearse con una <b>nueva cuenta de Spotify</b>.
               </p>
@@ -24,11 +22,11 @@
               </p>
               <div class="form-group">
                 <input type="text" class="form-control form-control-user" id="name"
-                       [(ngModel)]="space.name" #name="ngModel" name="name">
+                       [(ngModel)]="venue.name" #name="ngModel" name="name">
               </div>
 
               <button type="submit" class="btn btn-success btn-user btn-block text-uppercase mt-5">agregar</button>
-              <a class="btn btn-danger btn-user btn-block text-uppercase" [routerLink]="['/space/list']">cancelar</a>
+              <a class="btn btn-danger btn-user btn-block text-uppercase" [routerLink]="['/dashboard/venue/list']">cancelar</a>
             </ng-template>
 
 

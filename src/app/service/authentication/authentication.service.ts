@@ -15,11 +15,8 @@ export class AuthenticationService {
     this.url = environment.server;
   }
 
-  login(username: string, password: string) {
-    let params = new HttpParams()
-      .append('username', username)
-      .append('password', password);
-    return this.http.post<any>(`${this.url}/authorize/login`, params)
+  login(user) {
+    return this.http.post<any>(`${this.url}/auth`, { 'username': user.username, 'password': user.password })
       .pipe(
         map(user => {
           if (user && user.token) {

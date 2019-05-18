@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Buscador</h1>
+  </div>
+
+  <form class="form-inline mt-3 mb-5 mx-5 navbar-search">
+    <div class="input-group w-100">
+      <input name="query" [(ngModel)]="query" type="text"
+             class="form-control bg-light border-0 small" (keyup.enter)="search()"
+             placeholder="nombre de canción, artista, álbum" aria-label="Search" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" (click)="search()">
+          <i class="fas fa-search fa-sm"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-12 mb-3" *ngFor="let track of tracks">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col-auto">
+              <img class="img-profile rounded-circle" src="{{track.code}}">
+            </div>
+            <div class="col ml-3 mr-3">
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{track.name}}</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase my-1">{{track.artist}}</div>
+              <div class="text-xs font-weight-bold text-gray mb-1">{{track.album}}</div>
+            </div>
+            <div class="col-auto pointer">
+              <i class="fas fa-plus fa-2x text-gray-300 mx-3"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-sm-flex align-items-center mx-5 justify-content-between" *ngIf="showMessage">
+      <h6 class="mb-0 text-gray-800">No se encontraron resultados</h6>
+    </div>
+  </div>
+
+</div>

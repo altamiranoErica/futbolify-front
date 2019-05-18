@@ -21,11 +21,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = {};
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/space/list';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/venue/list';
   }
 
   submit(){
-    this.authenticationService.login(this.user['username'], this.user['password'])
+    this.authenticationService.login(this.user)
       .pipe(first())
       .subscribe(
         data => {

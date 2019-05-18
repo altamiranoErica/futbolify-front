@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SpacesComponent } from './spaces/spaces.component';
+import { VenuesComponent } from './venue/venues.component';
 
 const routes: Routes = [
   {
-    path: 'spaces',
-    component: SpacesComponent,
+    path: 'venues',
+    component: VenuesComponent,
   },
   {
     path: '',
-    redirectTo: 'spaces',
+    redirectTo: 'venues',
     pathMatch: 'full'
   }
 ];

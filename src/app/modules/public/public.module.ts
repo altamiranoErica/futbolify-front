@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SpacesComponent } from './spaces/spaces.component';
+import { VenuesComponent } from './venue/venues.component';
 import { PublicRoutingModule } from './public-routing.module';
 
 @NgModule({
-  declarations: [SpacesComponent],
+  declarations: [VenuesComponent],
   imports: [
     CommonModule,
     PublicRoutingModule

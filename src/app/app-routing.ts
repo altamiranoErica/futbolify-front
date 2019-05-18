@@ -9,8 +9,8 @@ const routes: Routes = [
     loadChildren: './modules/authentication/authentication.module#AuthenticationModule'
   },
   {
-    path: 'space',
-    loadChildren: './modules/space/space.module#SpaceModule',
+    path: 'dashboard',
+    loadChildren: './modules/dashboard/dashboard.module#DashboardModule',
     canActivate: [AuthGuard]
   },
   {

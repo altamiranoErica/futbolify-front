@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { AddComponent } from './add/add.component';
 import { CallbackComponent } from './callback/callback.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
     component: AddComponent,
   },
   {
+    path: 'search',
+    component: SearchComponent,
+  },
+  {
     path: 'callback',
     component: CallbackComponent,
   }
@@ -23,4 +28,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SpaceRoutingModule { }
+export class VenueRoutingModule { }
