@@ -24,9 +24,7 @@ export class VenueService {
   }
 
   add(venue) {
-    const params = new HttpParams()
-      .set('code', venue.code)
-      .set('name', venue.name);
-    return this.http.post(`${this.url}/venue/register`, params);
+    const param = new HttpParams().set('data', JSON.stringify(venue));
+    return this.http.post(`${this.url}/venue/register`, param);
   }
 }

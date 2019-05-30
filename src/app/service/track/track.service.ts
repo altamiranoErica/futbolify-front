@@ -19,4 +19,11 @@ export class TrackService {
       .append('query', query);
     return this.http.get(`${this.url}/track/search`, { params : params });
   }
+
+  getRandomTracks(venueID, count) {
+    let params = new HttpParams()
+      .append('venueID', venueID)
+      .append('count', count);
+    return this.http.get(`${this.url}/track/random`, { params : params });
+  }
 }

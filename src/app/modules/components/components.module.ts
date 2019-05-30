@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [HeaderComponent, MenuComponent],
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule
   ],
   exports: [HeaderComponent, MenuComponent]
 })

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.user = {};
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/venue/list';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard/venue/list';
   }
 
   submit(){

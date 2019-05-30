@@ -1,5 +1,5 @@
 <!-- Page Content -->
-<div class="container-fluid">
+<div class="container mx-5 my-5">
 
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Espacios</h1>
@@ -8,19 +8,20 @@
   <div class="row">
 
     <div class="col-md-4 mb-4" *ngFor="let venue of venues; index as i">
-      <div class="card shadow h-100 py-2">
+      <div class="card shadow-sm h-100 pb-2">
+        <img src="{{venue.image}}" class="card-img-top" alt="...">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="h5 mb-0 font-weight-bold text-gray-800">
+              <div class="text-lg font-weight-bold text-gray-800 mb-0">
                 {{venue.name}}
               </div>
             </div>
             <div class="col-auto">
-              <a href="#" class="mr-2"><i class="fas fa-pencil-alt fa-lg text-success-300"></i></a>
+              <a href="#" class="mr-2"><i class="fas fa-pencil-alt text-success-300"></i></a>
             </div>
             <div class="col-auto">
-              <a href="#" class="ml-2"><i class="fas fa-trash-alt fa-lg text-danger-300"></i></a>
+              <a href="#" class="ml-2"><i class="fas fa-trash-alt text-danger-300"></i></a>
             </div>
           </div>
         </div>
@@ -28,7 +29,7 @@
     </div>
 
     <div class="col-12">
-      <a class="d-sm-inline-block btn btn-md btn-primary text-uppercase float-left"
+      <a class="d-sm-inline-block btn btn-md btn-primary text-uppercase float-left shadow-sm"
          [routerLink]="['/dashboard/venue/add']">
         <i class="fas fa-plus"></i> agregar
       </a>
