@@ -4,13 +4,13 @@
     <h1 class="h3 mb-0 text-gray-800">Nueva votación</h1>
   </div>
 
-  <form>
+  <form #f="ngForm" (ngSubmit)="submit()" novalidate>
     <div class="form-group row mb-3">
       <label class="col-2 col-form-label">
         Espacio
       </label>
       <div class="col-10">
-        <select class="form-control custom-select" [(ngModel)]="venueID" name="venue">
+        <select class="form-control custom-select" [(ngModel)]="poll.venueID" name="venue">
           <option *ngFor="let venue of venues" [ngValue]="venue.id">
             {{venue.name}}
           </option>
@@ -24,30 +24,34 @@
         <h6 class="m-0 font-weight-bold text-primary">Selección de pistas</h6>
       </div>
       <div class="card-body">
-        <div class="form-group row my-3">
+
+        <div class="form-group row">
+          <div class="col-12" *ngIf="!showAutomatic && !showSearch">
+            <button class="d-sm-inline-block btn btn-md btn-info text-uppercase shadow-sm"
+                    (click)="showAutomatic = true"> automática </button>
+            <button class="d-sm-inline-block btn btn-md btn-warning text-uppercase shadow-sm ml-4"
+                    (click)="showSearch = true"> manual </button>
+          </div>
+        </div>
+        <div class="form-group row my-3" *ngIf="showAutomatic">
           <label class="col-2 col-form-label">
             Cantidad
           </label>
-          <div class="col-3">
+          <div class="col-4">
             <div class="form-group">
               <input type="number" class="form-control custom-select" id="name"
                      [(ngModel)]="count" #countTracks="ngModel" name="countTracks">
             </div>
           </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Selección</label>
-          <div class="col-sm-10" *ngIf="!selectedTracks">
-            <button class="d-sm-inline-block btn btn-md btn-info text-uppercase shadow-sm"
-                    (click)="automaticSelection()"> automática </button>
-            <button class="d-sm-inline-block btn btn-md btn-warning text-uppercase shadow-sm ml-4"
-                    (click)="manualSelection()"> manual </button>
+          <div class="col-6">
+            <a class="d-sm-inline-block btn btn-md btn-info text-uppercase shadow-sm"
+               (click)="automaticSelection()"
+               [ngClass]="{'disabled': !poll.venueID}"> buscar </a>
           </div>
         </div>
 
-        <div class="row" *ngIf="selectedTracks && selectedTracks.length > 0">
-          <div class="col-12 mb-3" *ngFor="let track of selectedTracks">
+        <div class="row" *ngIf="poll.tracks.length > 0">
+          <div class="col-12 mb-3" *ngFor="let track of poll.tracks">
             <div class="card shadow-sm h-100">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -67,10 +71,12 @@
             </div>
           </div>
         </div>
+
+        <app-search *ngIf="showSearch" (trackEmitter)="addTrack($event)"></app-search>
       </div>
     </div>
     <div class="float-right my-3">
-      <button type="submit" class="btn btn-success text-uppercase"> crear </button>
+      <button type="submit" class="btn btn-success text-uppercase" [disabled]="!poll.venueID"> crear </button>
       <a class="btn btn-danger text-uppercase ml-3" [routerLink]="['/dashboard/venue/list']">cancelar</a>
     </div>
   </form>

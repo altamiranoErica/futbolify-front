@@ -17,6 +17,7 @@ import { SearchComponent } from './search/search.component';
     ComponentsModule,
 
     VenueRoutingModule
-  ]
+  ],
+  exports: [SearchComponent]
 })
 export class VenueModule { }

@@ -1,0 +1,38 @@
+<div class="modal fade" id="pollModal" tabindex="-1" role="dialog" aria-labelledby="pollModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger text-center">
+        <h5 class="modal-title text-uppercase text-white">¡votá el próximo tema!</h5>
+      </div>
+
+      <div class="modal-body">
+        <ng-container *ngFor="let track of poll.tracks">
+          <div class="card card-rounded h-100 py-2 mb-2" [ngClass]="{'card-selected': selectedTrack === track}">
+            <div class="card-body pointer" (click)="selectedTrack = track">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <img src="{{track.code}}">
+                    </div>
+                    <div class="col">
+                      <h6 class="text-center mb-0 mr-3 font-weight-bold text-gray-800">{{track.name}}</h6>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger text-uppercase" data-dismiss="modal">cancelar</button>
+        <button type="button" class="btn btn-success text-uppercase" (click)="submit()" data-dismiss="modal">votar</button>
+      </div>
+    </div>
+  </div>
+</div>

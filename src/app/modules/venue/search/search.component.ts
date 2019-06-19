@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TrackService } from '../../../service/track/track.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit {
   query: string;
   tracks: any;
   showMessage: boolean;
+  @Output() trackEmitter = new EventEmitter();
 
   constructor(private trackService: TrackService) {
     this.tracks = [];
@@ -29,5 +30,16 @@ export class SearchComponent implements OnInit {
     } else {
       this.tracks = [];
     }
+  }
+
+  addTrack(track){
+    this.trackEmitter.emit(track);
+    // this.clean();
+  }
+
+  clean(){
+    this.query = null;
+    this.tracks = [];
+    this.showMessage = false;
   }
 }

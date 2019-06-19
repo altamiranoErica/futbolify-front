@@ -4,7 +4,7 @@ import { AddComponent } from './add/add.component';
 
 const routes: Routes = [
   {
-    path: 'add',
+    path: 'new',
     component: AddComponent
   }
 ];
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class VoteRoutingModule { }
+export class PollRoutingModule { }

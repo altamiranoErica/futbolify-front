@@ -2045,8 +2045,8 @@ pre code {
   background-color: #fff;
   border-color: #bac8f3;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -2605,6 +2605,10 @@ textarea.form-control {
 a.btn.disabled,
 fieldset:disabled a.btn {
   pointer-events: none;
+}
+
+a.btn.btn-default {
+  background: #f8f9fc !important;
 }
 
 .btn-primary {
@@ -3867,7 +3871,7 @@ input[type="button"].btn-block {
 
 .custom-control-input:focus ~ .custom-control-label::before {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  /*box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);*/
 }
 
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
@@ -4019,7 +4023,7 @@ input[type="button"].btn-block {
   border-color: #bac8f3;
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  /*box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);*/
 }
 
 .custom-select:focus::-ms-value {
@@ -4077,8 +4081,8 @@ input[type="button"].btn-block {
 
 .custom-file-input:focus ~ .custom-file-label {
   border-color: #bac8f3;
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
-  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+  /*-webkit-box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);*/
+  /*box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);*/
 }
 
 .custom-file-input:disabled ~ .custom-file-label {
@@ -6201,8 +6205,9 @@ a.close.disabled {
   pointer-events: auto;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
+  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
+  border-bottom: none;
+  border-radius: 1rem;
   outline: 0;
 }
 
@@ -6227,7 +6232,7 @@ a.close.disabled {
 .modal-header {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: block;
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;
@@ -6235,9 +6240,9 @@ a.close.disabled {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #e3e6f0;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
+  /*border-bottom: 1px solid #e3e6f0;*/
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .modal-header .close {
@@ -6269,9 +6274,9 @@ a.close.disabled {
   -ms-flex-pack: end;
   justify-content: flex-end;
   padding: 1rem;
-  border-top: 1px solid #e3e6f0;
-  border-bottom-right-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
+  /*border-top: 1px solid #e3e6f0;*/
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .modal-footer > :not(:first-child) {
@@ -11619,6 +11624,14 @@ a:focus {
 
 .card .card-header[data-toggle="collapse"].collapsed::after {
   content: '\f105';
+}
+
+.card-rounded {
+  border-radius: 60px !important;
+}
+
+.card-selected{
+  border: 2px solid #1cc88a;
 }
 
 .chart-area {

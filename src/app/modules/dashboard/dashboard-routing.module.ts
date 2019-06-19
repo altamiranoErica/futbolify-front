@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '', component: DashboardComponent, children: [
       { path: 'venue', loadChildren: '../venue/venue.module#VenueModule' },
-      { path: 'vote', loadChildren: '../vote/vote.module#VoteModule' }
+      { path: 'poll', loadChildren: '../poll/poll.module#PollModule' }
     ]
   }
 ];
