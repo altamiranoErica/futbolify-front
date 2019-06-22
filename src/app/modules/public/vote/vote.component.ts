@@ -19,10 +19,9 @@ export class VoteComponent implements OnInit {
   }
 
   submit(){
-    debugger;
     this.pollService.vote(this.poll, this.selectedTrack).subscribe(
       data => {
-
+        this.selectedTrack = null;
       }
     )
   }

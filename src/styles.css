@@ -67,7 +67,6 @@ body {
   line-height: 1.5;
   color: #858796;
   text-align: left;
-  background-color: #fff;
 }
 
 [tabindex="-1"]:focus {
@@ -6910,6 +6909,11 @@ a.close.disabled {
 
 .align-text-top {
   vertical-align: text-top !important;
+}
+
+.bg-image {
+  background-color: #365067;
+  background-image: url("assets/images/background-crowdify.jpg");
 }
 
 .bg-primary {

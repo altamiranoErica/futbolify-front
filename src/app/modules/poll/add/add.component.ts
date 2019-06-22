@@ -60,7 +60,7 @@ export class AddComponent implements OnInit {
   submit(){
     this.pollService.add(this.poll).subscribe(
       data => {
-        this.router.navigate(["/dashboard/poll/active_list"]);
+        this.router.navigate(["/dashboard/venue/list"]);
       }, error => {
         console.log(error);
       }
