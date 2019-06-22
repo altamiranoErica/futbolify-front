@@ -26,7 +26,8 @@ export class VenuesComponent implements OnInit {
     this.websocketService.finishPoll_webSocket.subscribe((result) => {
       this.websocketService.finishPoll_Observable.subscribe((response) => {
         if(response) {
-          let venue = this.venues.find(v => v.id === response.venueID);
+          let venue = this.venues.find(v => v.id === response.id);
+          venue.track = response.track;
           venue.poll = null;
         }
       })
@@ -53,28 +54,10 @@ export class VenuesComponent implements OnInit {
         }
       )
     });
-    // this.initializeWebSocketConnection();
   }
 
   safeURL(url){
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
-
-  private stompClient;
-
-  // initializeWebSocketConnection(){
-  //   let ws = new SockJS('http://localhost:8080/socket');
-  //   this.stompClient = Stomp.over(ws);
-  //   let that = this;
-  //   this.stompClient.connect({}, function(frame) {
-  //     that.stompClient.subscribe("/poll/finish_event", (message) => {
-  //       if(message.body) {
-  //         const poll = JSON.parse(message.body);
-  //         let venue = that.venues.find(v => v.id === poll.venueID);
-  //         venue.poll = null;
-  //       }
-  //     });
-  //   });
-  // }
 
 }
