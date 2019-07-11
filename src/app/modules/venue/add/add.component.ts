@@ -9,7 +9,7 @@ import { VenueService } from '../../../service/venue/venue.service';
 })
 export class AddComponent implements OnInit {
 
-  endpoint: string = 'http://localhost:4200/dashboard/venue/callback';
+  endpoint: string = window.location.origin + '/dashboard/venue/callback';
   venue: any;
   url: string;
 
