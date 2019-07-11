@@ -3,11 +3,11 @@
 
   <div class="row">
 
-    <div class="col-12 mt-4" *ngFor="let venue of venues; index as i">
+    <div class="col-md-10 col-12 offset-md-1 mt-4" *ngFor="let venue of venues; index as i">
       <div class="card border-left-{{colors[i%4]}} shadow.sm h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
-            <div class="col-10">
+            <div class="col-12">
               <div class="h5 font-weight-bold text-{{colors[i%4]}} text-uppercase mb-3">
                 {{venue.name}}
               </div>
@@ -24,15 +24,10 @@
                   <i class="far fa-pause-circle fa-2x mr-1"></i>
                   <span [style.vertical-align]="'super'">{{venue.track.artist}} - {{venue.track.name}}</span>
                 </div>
-
-
               </ng-template>
             </div>
-            <div class="col-2 text-center" *ngIf="venue.poll">
-              <button type="button" class="btn btn-success text-uppercase" data-toggle="modal" data-target="#pollModal"
-                      (click)="selectedPoll = venue.poll">
-                votar
-              </button>
+            <div class="col-12" *ngIf="venue.poll">
+              <app-vote [poll]="venue.poll"></app-vote>
             </div>
           </div>
         </div>
@@ -43,6 +38,3 @@
 
 </div>
 <!-- /.container -->
-
-
-<app-vote [poll]="selectedPoll"></app-vote>

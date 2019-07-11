@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  server: 'http://192.168.0.124:8080/api'
+  server: 'https://crowdify.herokuapp.com/api',
+  socketServer: 'https://crowdify.herokuapp.com/socket'
 };

@@ -3,7 +3,8 @@ import * as Stomp from '@stomp/stompjs';
 import { Observable } from '../../../../node_modules/@angular/cli/node_modules/rxjs';
 import { Frame } from '@stomp/stompjs';
 import * as SockJS from 'sockjs-client';
-import { HttpClient } from '@angular/common/http';
+
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class WebsocketService {
 
   constructor() {
     this.finishPoll_webSocket = Observable.create(websocketSubscriber => {
-      let socket = new SockJS('http://localhost:8080/socket');
+      let socket = new SockJS(environment.socketServer);
       let stompClient = Stomp.over(socket);
 
       stompClient.connect({}, (frame: Frame) => {
@@ -40,7 +41,7 @@ export class WebsocketService {
     });
 
     this.startPoll_webSocket = Observable.create(websocketSubscriber => {
-      let socket = new SockJS('http://localhost:8080/socket');
+      let socket = new SockJS(environment.socketServer);
       let stompClient = Stomp.over(socket);
 
       stompClient.connect({}, (frame: Frame) => {

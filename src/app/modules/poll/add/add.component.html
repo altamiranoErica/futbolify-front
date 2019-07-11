@@ -5,12 +5,12 @@
   </div>
 
   <form #f="ngForm" (ngSubmit)="submit()" novalidate>
-    <div class="form-group row mb-3">
+    <div class="form-group row mb-5">
       <label class="col-2 col-form-label">
         Espacio
       </label>
       <div class="col-10">
-        <select class="form-control custom-select" [(ngModel)]="poll.venueID" name="venue">
+        <select class="form-control custom-select input-rounded" [(ngModel)]="poll.venueID" name="venue">
           <option *ngFor="let venue of venues" [ngValue]="venue.id">
             {{venue.name}}
           </option>
@@ -18,18 +18,17 @@
       </div>
     </div>
 
-
-    <div class="card">
+    <div class="card mb-5" *ngIf="!showSearch">
       <div class="card-header">
         <h6 class="m-0 font-weight-bold text-primary">Selección de pistas</h6>
       </div>
       <div class="card-body">
 
         <div class="form-group row">
-          <div class="col-12" *ngIf="!showAutomatic && !showSearch">
-            <button class="d-sm-inline-block btn btn-md btn-info text-uppercase shadow-sm"
+          <div class="col-12" *ngIf="!showAutomatic">
+            <button class="d-sm-inline-block btn btn-rounded btn-primary text-uppercase"
                     (click)="showAutomatic = true"> automática </button>
-            <button class="d-sm-inline-block btn btn-md btn-warning text-uppercase shadow-sm ml-4"
+            <button class="d-sm-inline-block btn btn-rounded btn-primary text-uppercase ml-4"
                     (click)="showSearch = true"> manual </button>
           </div>
         </div>
@@ -39,45 +38,63 @@
           </label>
           <div class="col-4">
             <div class="form-group">
-              <input type="number" class="form-control custom-select" id="name"
+              <input type="number" class="form-control custom-select input-rounded" id="name"
                      [(ngModel)]="count" #countTracks="ngModel" name="countTracks">
+              <small *ngIf="!poll.venueID" class="form-text text-danger">¡Debe seleccionar un espacio!</small>
             </div>
           </div>
           <div class="col-6">
-            <a class="d-sm-inline-block btn btn-md btn-info text-uppercase shadow-sm"
+            <a class="d-sm-inline-block btn btn-rounded btn-primary text-uppercase text-white py-2"
                (click)="automaticSelection()"
                [ngClass]="{'disabled': !poll.venueID}"> buscar </a>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="row" *ngIf="poll.tracks.length > 0">
-          <div class="col-12 mb-3" *ngFor="let track of poll.tracks">
-            <div class="card shadow-sm h-100">
+    <div class="card mb-5" *ngIf="poll.tracks.length > 0">
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold text-primary">Pistas seleccionadas</h6>
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let track of poll.tracks; index as i">
+            <div class="card h-100 pb-2">
+              <a class="close-card-button pointer" (click)="remove(track)">
+                <span class="fa-stack fa-1x">
+                  <i class="fas fa-circle fa-stack-2x fa-inverse"></i>
+                  <i class="far fa-times-circle fa-stack-2x"></i>
+                </span>
+              </a>
+              <img src="{{track.code}}" class="card-img-top" [style.margin-top]="'-20px'">
               <div class="card-body">
                 <div class="row no-gutters align-items-center">
-                  <div class="col-auto">
-                    <img class="img-profile rounded-circle" src="{{track.code}}">
-                  </div>
-                  <div class="col ml-4">
+                  <div class="col mr-2">
                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{track.name}}</div>
                     <div class="text-xs font-weight-bold text-primary text-uppercase my-1">{{track.artist}}</div>
                     <div class="text-xs font-weight-bold text-gray mb-1">{{track.album}}</div>
-                  </div>
-                  <div class="col-auto pointer mx-3">
-                    <i class="fas fa-trash-alt text-danger-300" (click)="remove(track)"></i>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <app-search *ngIf="showSearch" (trackEmitter)="addTrack($event)"></app-search>
       </div>
     </div>
+
+    <div class="card" *ngIf="showSearch" >
+      <div class="card-header">
+        <h6 class="m-0 font-weight-bold text-primary">Buscar pistas</h6>
+      </div>
+      <div class="card-body">
+        <app-search (trackEmitter)="addTrack($event)"></app-search>
+      </div>
+    </div>
+
     <div class="float-right my-3">
-      <button type="submit" class="btn btn-success text-uppercase" [disabled]="!poll.venueID"> crear </button>
-      <a class="btn btn-danger text-uppercase ml-3" [routerLink]="['/dashboard/venue/list']">cancelar</a>
+      <button type="submit" class="btn btn-success btn-rounded text-uppercase" [disabled]="!poll.venueID"> crear </button>
+      <a class="btn btn-danger btn-rounded text-uppercase ml-3" [routerLink]="['/dashboard/venue/list']">cancelar</a>
     </div>
   </form>
 </div>
