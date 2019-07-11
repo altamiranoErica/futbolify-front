@@ -18,8 +18,8 @@ export class VoteComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit(){
-    this.pollService.vote(this.poll, this.selectedTrack).subscribe(
+  submit(track){
+    this.pollService.vote(this.poll, track).subscribe(
       data => {
         this.selectedTrack = null;
       }

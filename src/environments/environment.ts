@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  server: 'http://192.168.0.124:8080/api'
+  server: 'http://192.168.0.124:8080/api',
+  socketServer: 'http://192.168.0.124:8080/socket'
 };
 
 /*
