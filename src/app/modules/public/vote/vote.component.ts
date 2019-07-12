@@ -21,19 +21,19 @@ export class VoteComponent implements OnInit {
 
   ngOnInit() {
     this.expirationTime = this.poll.expirationTime;
-    this.startTimer();
+    // this.startTimer();
   }
 
-  interval: any;
-  startTimer() {
-    this.interval = setInterval(() => {
-      if(this.expirationTime > 0) {
-        this.expirationTime = this.expirationTime - 1000;
-      } else {
-        clearInterval(this.interval)
-      }
-    },1000)
-  }
+  // interval: any;
+  // startTimer() {
+  //   this.interval = setInterval(() => {
+  //     if(this.expirationTime > 0) {
+  //       this.expirationTime = this.expirationTime - 1000;
+  //     } else {
+  //       this.interval = null;
+  //     }
+  //   },1000)
+  // }
 
   submit(track){
     this.pollService.vote(this.poll, track).subscribe(

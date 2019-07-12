@@ -14,7 +14,6 @@ export class AddComponent implements OnInit {
   venues: any;
   count: number;
   showSearch: boolean;
-  showAutomatic: boolean;
   poll: any;
 
   constructor(protected router: Router,
@@ -23,11 +22,11 @@ export class AddComponent implements OnInit {
               protected pollService: PollService) {
     this.count = 3;
     this.showSearch = false;
-    this.showAutomatic = false;
 
     this.poll = {
       venueID: null,
-      tracks: []
+      tracks: [],
+      automatic: false
     };
   }
 

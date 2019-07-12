@@ -25,14 +25,14 @@
       <div class="card-body">
 
         <div class="form-group row">
-          <div class="col-12" *ngIf="!showAutomatic">
+          <div class="col-12" *ngIf="!poll.automatic">
             <button class="d-sm-inline-block btn btn-rounded btn-primary text-uppercase"
-                    (click)="showAutomatic = true"> automática </button>
+                    (click)="poll.automatic = true"> automática </button>
             <button class="d-sm-inline-block btn btn-rounded btn-primary text-uppercase ml-4"
                     (click)="showSearch = true"> manual </button>
           </div>
         </div>
-        <div class="form-group row my-3" *ngIf="showAutomatic">
+        <div class="form-group row my-3" *ngIf="poll.automatic">
           <label class="col-2 col-form-label">
             Cantidad
           </label>

@@ -2,7 +2,8 @@
 <div class="row">
   <div class="col-12 mt-3">
     <h5 class="text-center font-weight-bold text-danger">¡Votá la próxima canción!</h5>
-    <p class="text-center text-danger">... te quedan {{ expirationTime | date: 'mm:ss' }} ...</p>
+    <p class="text-center text-danger">... quedan <countdown [config]="{leftTime: poll.expirationTime / 1000 }">$!m!:$!s!</countdown>
+      para que termine ...</p>
   </div>
   <div class="col-12 mt-3" *ngFor="let track of poll.tracks">
     <div class="card rounded-xxl bg-primary-800">

@@ -12,13 +12,12 @@ import { WebsocketService } from '../../../service/websocket/websocket.service';
 export class VenuesComponent implements OnInit {
 
   venues: any;
-  colors = ['success', 'warning', 'info', 'danger', 'primary'];
+  colors = ['warning', 'info', 'success', 'danger', 'primary'];
   selectedPoll: any;
 
   constructor(private venueService: VenueService,
               private pollService: PollService,
-              private websocketService: WebsocketService,
-              private sanitizer: DomSanitizer) {
+              private websocketService: WebsocketService) {
     this.selectedPoll = { };
 
     this.websocketService.finishPoll_webSocket.subscribe((result) => {
@@ -26,6 +25,9 @@ export class VenuesComponent implements OnInit {
         if(response) {
           let venue = this.venues.find(v => v.id === response.id);
           venue.track = response.track;
+          venue.iframe = '<iframe src="https://open.spotify.com/embed?uri=spotify:track:' + venue.track.id +
+            '" width="100%" height="80" ' +
+            ' frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>';
           venue.poll = null;
         }
       })
@@ -46,16 +48,16 @@ export class VenuesComponent implements OnInit {
       (_venues: any[]) => {
       this.pollService.getAllActives().subscribe(
         (_polls: any[]) => {
-          _venues.forEach(v => v.poll = _polls.find(poll => poll.venueID === v.id));
-
+          _venues.forEach(v => {
+            debugger
+            v.poll = _polls.find(poll => poll.venueID === v.id);
+            if(v.track) v.iframe = '<iframe src="https://open.spotify.com/embed?uri=spotify:track:' + v.track.id +
+                '" width="100%" height="80" ' +
+                ' frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>'})
+          });
           this.venues = _venues;
         }
-      )
-    });
-  }
-
-  safeURL(url){
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+      );
   }
 
 }
