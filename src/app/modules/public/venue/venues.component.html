@@ -1,10 +1,17 @@
-<!-- Page Content -->
+<!--<nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top">-->
+  <!--<div class="sidebar-brand d-flex align-items-center justify-content-center">-->
+    <!--<img src="../../../../assets/images/logo.png" alt="" width="50">-->
+    <!--<span class="sidebar-brand-text mx-2 text-primary">CROWDIFY</span>-->
+  <!--</div>-->
+<!--</nav>-->
+
+
 <div class="container">
 
   <div class="row">
 
-    <div class="col-md-10 col-12 offset-md-1 mt-4" *ngFor="let venue of venues; index as i">
-      <div class="card border-left-{{colors[i%4]}} shadow.sm h-100 py-2">
+    <div class="col-md-10 col-12 offset-md-1 my-2" *ngFor="let venue of venues; index as i">
+      <div class="card border-left-{{colors[i%4]}} h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col-12">
@@ -15,9 +22,9 @@
                 ... no se está escuchando nada en este espacio ...</div>
 
               <ng-template #trackShow>
-                <iframe [src]="safeURL(venue.track.code)" width="100%"
-                        height="80" frameborder="0" allowtransparency="true"
-                        allow="encrypted-media" *ngIf="venue.track.playing"></iframe>
+                <iframe [src]="safeURL(venue.track.code)" width="100%" height="80"
+                        frameborder="0" allowtransparency="true" allow="encrypted-media"
+                        *ngIf="venue.track.playing"></iframe>
 
                 <div class="text-xs font-weight-bold text-gray-500 text-uppercase mb-1"
                      *ngIf="!venue.track.playing">

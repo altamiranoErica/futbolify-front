@@ -6934,6 +6934,10 @@ a.close.disabled {
   background-color: #527296 !important;
 }
 
+.bg-primary-800 {
+  background-color: #082149 !important;
+}
+
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
@@ -10651,7 +10655,7 @@ html {
 
 body {
   height: 100%;
-  /*background-image: url("assets/images/background-crowdify.jpg");*/
+  background: #213F6A;
 }
 
 a:focus {
@@ -12134,4 +12138,17 @@ body.sidebar-toggled footer.sticky-footer {
   margin-top: -12px;
   margin-left: -17px;
   z-index: 20;
+}
+
+.poll-img {
+  float: right;
+  max-width: 50px;
+}
+
+.right {
+  float: right !important;
+}
+
+.left {
+  float: left !important;
 }

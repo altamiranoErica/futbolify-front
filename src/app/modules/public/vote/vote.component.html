@@ -1,14 +1,15 @@
 
 <div class="row">
   <div class="col-12 mt-3">
-    <h6 class="text-center text-danger">¡Votá la próxima canción!</h6>
+    <h5 class="text-center font-weight-bold text-danger">¡Votá la próxima canción!</h5>
+    <p class="text-center text-danger">... te quedan {{ expirationTime | date: 'mm:ss' }} ...</p>
   </div>
   <div class="col-12 mt-3" *ngFor="let track of poll.tracks">
-    <div class="card rounded-xxl bg-primary">
+    <div class="card rounded-xxl bg-primary-800">
       <div class="card-body p-2">
         <div class="row no-gutters align-items-center">
           <div class="col-2 hidden-mobile">
-            <img class="img-profile mr-4" src="{{track.code}}" style="float: right; max-width: 50px;">
+            <img class="rounded mr-4 poll-img" src="{{track.code}}">
           </div>
           <div class="col-md-6 col-8">
             <div class="h6 text-white ml-4-mobile">{{track.name}}</div>
@@ -16,8 +17,13 @@
               <i class="fas fa-star mr-1"></i>{{track.artist}}</div>
           </div>
           <div class="col-md-4 col-4">
-            <a class="btn btn-success btn-rounded text-white text-uppercase pointer"
-               style="float: right;" (click)="submit(track)">votar</a>
+            <ng-container *ngIf="!showResults; else showVoteResult">
+              <a class="btn btn-success btn-rounded text-white text-uppercase pointer right"
+                 (click)="submit(track)">votar</a>
+            </ng-container>
+            <ng-template #showVoteResult>
+              <div class="h5 text-white font-weight-bold right mr-4 my-auto">{{(track.votesCount/this.totalVotes * 100).toFixed(0)}} %</div>
+            </ng-template>
           </div>
         </div>
       </div>

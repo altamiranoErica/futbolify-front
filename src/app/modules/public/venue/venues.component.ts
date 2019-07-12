@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { VenueService } from '../../../service/venue/venue.service';
 import { PollService } from '../../../service/poll/poll.service';
-import { Observable } from '../../../../../node_modules/@angular/cli/node_modules/rxjs';
-import { Frame } from '@stomp/stompjs';
 import { WebsocketService } from '../../../service/websocket/websocket.service';
 
 @Component({
